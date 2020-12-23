@@ -15,8 +15,6 @@ class TestDay1_1(unittest.TestCase):
         self.assertRaises(AssertionError, expense_report_advanced, oneVal)
         twoValues =  [1010, 1010]
         self.assertRaises(AssertionError, expense_report_advanced, twoValues)
-        testString = "notfound.txt"
-        self.assertRaises(FileNotFoundError, expense_report_advanced, testString)
 
     def test_values(self):
         twoValues = [1010, 1010]

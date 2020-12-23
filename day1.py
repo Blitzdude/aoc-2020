@@ -5,6 +5,9 @@ as data. It finds two values in that list that
 add to 2020 and multiplies them together.
 Then it returns the value
 '''
+from common import read_file_to_list
+
+
 def expense_report(parameter):
     if (parameter == None):
         raise TypeError("data is empty or not defined")
@@ -51,7 +54,7 @@ def expense_report_advanced(parameter):
 
     reportData = []
     if (type(parameter) == str):
-        reportData = read_file(parameter)
+        reportData = read_file_to_list(parameter)
     else:
         reportData = parameter
 
@@ -77,21 +80,6 @@ def expense_report_advanced(parameter):
         print("no three values with sum equal to 2020 found.")
         return 0
 
-def read_file(filename):
-    print(f"Reading file {filename}")
-    content = []
-    try:
-        with open(filename, "r") as f:
-            for line in f:
-                print(f"> {line}")
-                content.append(int(line.strip()))
-    except FileNotFoundError:
-        raise FileNotFoundError("File not found")
-
-    if (len(content) <= 1):
-        raise AssertionError("Reading file fail: Data List too short")
-    return content
-
 if __name__ == "__main__":
-    expense_report_advanced("day1_input.txt")
+    expense_report_advanced("input/day1_input.txt")
     pass
